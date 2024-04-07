@@ -24,12 +24,15 @@ const SettingsPage = () => {
       });
 
       if (response.ok) {
-        alert('用户名更新成功');
+        const data = await response.json();
+        alert(`用户名更新成功，新名称为：${data.name}`);
       } else {
-        alert('用户名更新失败');
+        const error = await response.json();
+        alert(`用户名更新失败：${error.message}`);
       }
     } catch (error) {
       alert('出现错误');
+      console.error('更新用户名错误:', error);
     } finally {
       setIsLoading(false);
     }
@@ -46,10 +49,12 @@ const SettingsPage = () => {
         signOut({ redirect: false });
         router.push('/');
       } else {
-        alert('删除账户失败');
+        const error = await response.json();
+        alert(`删除账户失败：${error.message}`);
       }
     } catch (error) {
       alert('出现错误');
+      console.error('删除账户错误:', error);
     } finally {
       setIsLoading(false);
     }
