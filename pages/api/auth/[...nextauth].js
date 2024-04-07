@@ -9,11 +9,8 @@ export default NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      authorization: {
-    params: {},
-  },
-  checks: ['none'],
-      }
+      authorizationParams: {}, // 修改為 authorizationParams
+      checks: ['none'],
     })
   ],
   callbacks: {
