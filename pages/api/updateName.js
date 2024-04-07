@@ -1,33 +1,29 @@
-import { getSession } from 'next-auth/react'
-import { prisma } from '../../lib/prisma'
+// pages/api/updateName.js
+import { getSession } from 'next-auth/react';
+import prisma from '../../lib/prisma';
 
 export default async function handler(req, res) {
-  const session = await getSession({ req })
-
-  if (!session) {
-    return res.status(401).json({ message: 'Unauthorized.' })
+  if (req.method !== 'PATCH') {
+    return res.status(405).end();
   }
 
-  const currentUser = await prisma.user.findUnique({
-    where: {
-      email: session.user.email,
-    },
-  })
+  const session = await getSession({ req });
 
-  if (req.method === 'PUT') {
-    const { newName } = req.body
+  if (!session) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
 
-    const updatedUser = await prisma.user.update({
-      where: {
-        id: currentUser.id,
-      },
-      data: {
-        name: newName,
-      },
-    })
+  const { name } = req.body;
+  const { email } = session.user;
 
-    return res.status(200).json(updatedUser)
-  } else {
-    return res.status(405).json({ message: 'Method Not Allowed' })
+  try {
+    const user = await prisma.user.update({
+      where: { email },
+      data: { name },
+    });
+
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong' });
   }
 }
