@@ -1,37 +1,31 @@
-name: Prisma Generate and DB Push
+name: Prisma Workflow
 
 on:
   push:
-    branches:
-      - main  # 替换成你希望触发的分支
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
+
+  prisma:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    
-    - name: Install Node.js and npm
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-    
-    - name: Install Prisma
-      run: npm install -g prisma@latest
-    
-    - name: Clone repository
-      run: git clone https://github.com/ssangyongsportsorg/Ssport-website.git
-    
-    - name: Navigate to project directory
-      run: cd Ssport-website
-    
-    - name: Install project dependencies
-      run: npm install
-    
-    - name: Generate Prisma client
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Clone Repository
+      run: |
+        git clone https://github.com/ssangyongsportsorg/Ssport-website.git
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Prisma Generate
       run: npx prisma generate
       
-    - name: Apply Prisma migrations
+
+    - name: Prisma DB Push
       run: npx prisma db push
+      
