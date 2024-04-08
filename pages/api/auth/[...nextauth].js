@@ -5,14 +5,11 @@ import prisma from "../../../lib/prisma"
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
-  session: {
-    strategy: 'jwt' // 添加JWT策略
-  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      authorizationParams: {}, // 修改为 authorizationParams
+      authorizationParams: {}, // 修改為 authorizationParams
       checks: ['none'],
     })
   ],
