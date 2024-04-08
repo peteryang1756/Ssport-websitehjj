@@ -15,7 +15,7 @@ export const authOptions = {
   ],
   callbacks: {
     async session({ session, user }) {
-      session.user.id = user.id
+      session.user.id = user.id      session!.user!.isActive = user.isActive;
       return session
     }
   }
