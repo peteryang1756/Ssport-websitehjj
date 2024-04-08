@@ -1,5 +1,5 @@
 // pages/api/updateName.js
-import { getServerSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth/next';
 import prisma from '../../lib/prisma';
 
 export default async function handler(req, res) {
