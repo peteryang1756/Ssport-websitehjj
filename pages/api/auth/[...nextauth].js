@@ -3,13 +3,13 @@ import GoogleProvider from "next-auth/providers/google"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import prisma from "../../../lib/prisma"
 
-export default NextAuth({
+export const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      authorizationParams: {}, // 修改為 authorizationParams
+      authorizationParams: {}, 
       checks: ['none'],
     })
   ],
@@ -19,4 +19,10 @@ export default NextAuth({
       return session
     }
   }
-})
+}
+
+export default NextAuth(authOptions)
+
+export const getServerSession = async (req, res, next) => {
+  return await getServerSession(req, res, authOptions)
+}
