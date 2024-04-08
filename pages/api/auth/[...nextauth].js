@@ -4,38 +4,20 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import prisma from "../../../lib/prisma"
 
 export const authOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter({ prisma }),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      authorizationParams: {},
+      authorizationParams: {}, 
       checks: ['none'],
     })
   ],
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id
-      }
-      return token
-    },
-    async session({ session, token }) {
-      if (token) {
-        session.id = token.id
-        const user = await prisma.user.findUnique({
-          where: { id: token.id },
-          select: { email: true, name: true, image: true, isActive: true },
-        })
-        session.user = {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          image: user.image,
-          isActive: user.isActive,
-        }
-      }
-      return session
+    async session({ session, user }) {
+      session.user.id = user.id;
+      session.user.isActive = user.isActive;
+      return session;
     }
   }
 }
