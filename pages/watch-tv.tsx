@@ -1,52 +1,40 @@
-import { useSession } from "next-auth/react"
-import { Button } from 'flowbite-react';
-import Link from 'next/link';
-import styles from './components/Button.module.css';
-import { signIn } from "next-auth/react"
-export default function Admin() {
-  const { status } = useSession({
-    required: true,
-    onUnauthenticated() {
-      // The user is not authenticated, handle it here.
-    },
-  })
+"use client";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+const baseBtnStyle = "bg-slate-100 hover:bg-slate-200 text-black px-6 py-2 rounded-md capitalize font-bold mt-1";
+
+export default function Tv() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/");
+    }
+  }, [status, router]);
 
   if (status === "loading") {
-    return (
-    <div>
-    <section className="bg-white dark:bg-gray-900">
-    <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <div className="mx-auto max-w-screen-sm text-center">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-     請
-              <span className={styles.abc}>登入</span>
-      帳號
-    </h2>
-          <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">要觀看tv請先登入謝謝。</p>
-           <button color="blue" onClick={() => signIn()}>Sign in</button>
-           
-        </div>   
-    </div>
-</section>
-      </div>
-      )
+    return <p>Loading...</p>;
   }
 
-  return (
-  <div>
-    <section className="bg-white dark:bg-gray-900">
-    <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <div className="mx-auto max-w-screen-sm text-center">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-     請
-              <span className={styles.abc}>購買</span>
-      會員
-    </h2>
-          <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">要觀看tv請先購買會員。</p>
-            
-        </div>   
-    </div>
-</section>
-      </div>
-    )
+  if (status === "authenticated" && session?.user?.isActive) {
+    return (
+      <section className="">
+        {/* Include shared UI here e.g. a header or sidebar */}
+        <nav className="flex items-center justify-between w-full p-3 top-0 sticky z-10 border-b-4">
+          Signed in as {session?.user?.name} <br />
+          <button className={baseBtnStyle} onClick={() => signOut({ callbackUrl: '/' })}>
+            Sign out
+          </button>
+        </nav>
+
+        {/* Add your TV component content here */}
+      </section>
+    );
+  } else {
+    router.push("/subscription");
+    return null; // or you can render a placeholder component
+  }
 }
