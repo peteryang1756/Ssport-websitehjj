@@ -25,9 +25,15 @@ export const authOptions = {
         session.id = token.id
         const user = await prisma.user.findUnique({
           where: { id: token.id },
-          select: { isActive: true }, // 只选择 isActive 字段
+          select: { email: true, name: true, image: true, isActive: true },
         })
-        session.user.isActive = user?.isActive || false // 将 isActive 附加到 session.user 对象上
+        session.user = {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          image: user.image,
+          isActive: user.isActive,
+        }
       }
       return session
     }
