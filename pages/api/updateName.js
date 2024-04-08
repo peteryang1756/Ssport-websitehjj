@@ -7,8 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).end();
   }
 
-  const session = await getServerSession(context.req, context.res, options);
-};
+  const session = await getServerSession(req, res); // 修改這裡，移除 context.req 和 context.res
 
   if (!session) {
     return res.status(401).json({ message: 'Unauthorized' });
