@@ -15,6 +15,7 @@ user: {
 /** The user's postal address. */
 id: number;
 email: string;
+isActive: boolean;
 name: string;
 image: string;
 };
