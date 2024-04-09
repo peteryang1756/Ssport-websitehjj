@@ -23,9 +23,9 @@ jobs:
       run: npm ci
 
     - name: Prisma Generate
-      run:  npx prisma db push
+      run:  npx prisma generate
       
 
     - name: Prisma DB Push
-      run:  npx prisma generate
+      run:  npx prisma db push
       
