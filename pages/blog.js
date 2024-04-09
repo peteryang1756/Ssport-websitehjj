@@ -152,9 +152,9 @@ export default function Blog({posts}){
       </Head>
 </section>
         </div>
-                
-        
-  
+
+
+
 
         {posts.map(post => {
             //extract slug and frontmatter
@@ -164,26 +164,63 @@ export default function Blog({posts}){
 
             //JSX for individual blog listing
             return <article className="bg-white dark:bg-gray-900" key={title}>
-        
-     <Link className="group flex flex-col h-full border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5 dark:border-gray-700 dark:hover:border-transparent dark:hover:shadow-black/[.4]" href={`/blog/`}>
-  <div className="aspect-w-16 aspect-h-11">
-    <img className="w-full object-cover rounded-xl" src="https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Image Description" />
-  </div>
-  <div className="my-6">
-    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:group-hover:text-white">
-      {title}
-    </h3>
-    <p className="mt-5 text-gray-600 dark:text-gray-400">
-      {seo}
-    </p>
-  </div>
-  <div className="mt-auto flex items-center gap-x-3">
-    <img className="size-8 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Image Description" />
-    <div>
-      <h5 className="text-sm text-gray-800 dark:text-gray-200"> {author}</h5>
+
+         <div className="flex justify-between px-4 mx-auto max-w-8xl">
+  <div className="hidden mb-6 xl:block lg:w-80">
+    <div className="sticky top-36">
     </div>
   </div>
-</Link>
+  <div className="w-full max-w-2xl mx-auto">
+    <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <article className="py-6">
+        <div className="flex items-center justify-between mb-3 text-gray-500">
+          <div>
+            <Link
+              className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 hover:bg-blue-200 dark:hover:bg-blue-300 dark:text-blue-800 mb-2"
+              href={`/blog/tags/${tags}`}
+            >
+              #{tags}
+            </Link>
+          </div>
+          <span className="text-sm">
+            {date}
+          </span>
+        </div>
+    <h2 className={`mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white `}>
+    <Link href={`/blog/${slug}`}>
+            {title}
+          </Link>
+        </h2>
+        <p className="mb-5 text-gray-500 dark:text-gray-400">
+          {seo}
+        </p>
+        <div className="flex items-center justify-between">
+          <a
+            className="flex items-center space-x-2"
+            href="https://discuss.ssangyongsports.org/members/peter-yang.1/"
+          >
+            <Image
+  className="rounded-full w-7 h-7"
+  src={img}
+  alt={author}
+/>
+
+            <span className="font-medium dark:text-white">
+               {author}
+            </span>
+          </a>
+          <Link
+            href={`/blog/${slug}`}
+          >
+                    閱讀文章
+
+          </Link>
+        </div>
+      </article>
+    </div>
+
+</div>
+</div>
 </article>
 
         })}
