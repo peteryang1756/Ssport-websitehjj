@@ -168,7 +168,7 @@ export default function Blog({posts}){
        <div className="w-full px-4 md:w-1/2 lg:w-1/3">
   <div className="mb-10 w-full">
     <div className="mb-8 overflow-hidden rounded">
-      <img src={image} alt="" className="w-full" />
+      <img src={bannerImage} alt="" className="w-full" />
     </div>
     <div>
       
