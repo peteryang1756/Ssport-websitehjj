@@ -3,79 +3,30 @@ import styles from './Button.module.css';
 
 function supportend() {
   return (
-    <section>
-      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <div className="mx-auto max-w-screen-md sm:text-center">
-          <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">
-            需要其他
-            <span className={styles.abc}>協助</span>
-            嗎？
-          </h2>
-          <div className="space-y-2 sm:grid sm:grid-cols-2 lg:grid-cols-2 sm:gap-2 xl:gap-8 sm:space-y-0 md:mt-12">
-            <Link
-              href="https://ssangyongsports.eu.org/contact"
-              className="block px-8 py-12 text-center bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 hover:shadow-lg dark:hover:shadow-lg-light"
-            >
-              <span
-                style={{
-                  boxSizing: "border-box",
-                  display: "inline-block",
-                  overflow: "hidden",
-                  width: "initial",
-                  height: "initial",
-                  background: "none",
-                  opacity: 1,
-                  border: 0,
-                  margin: 0,
-                  padding: 0,
-                  position: "relative",
-                  maxWidth: "100%"
-                }}
-              >
-                <img
-                  alt=""
-                  className="service-icon"
-                  src="https://cdn-icons-png.flaticon.com/256/5300/5300598.png"
-                  width={75}
-                />
-                <noscript />
-              </span>
-              <h3 className="font-semibold text-xl text-gray-900 dark:text-white mt-3.5">
-                聯繫我們
-              </h3>
-            </Link>
-            <div
-              onClick={() => window.$crisp && window.$crisp.push(['do', 'chat:open'])}
-              className="block px-8 py-12 text-center bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 hover:shadow-lg dark:hover:shadow-lg-light"
-            >
-              <span
-                style={{
-                  boxSizing: "border-box",
-                  display: "inline-block",
-                  overflow: "hidden",
-                  width: "initial",
-                  height: "initial",
-                  background: "none",
-                  opacity: 1,
-                  border: 0,
-                  margin: 0,
-                  padding: 0,
-                  position: "relative",
-                  maxWidth: "100%"
-                }}
-              >
-                <img
-                  alt=""
-                  className="service-icon"
-                  src="https://cdn-icons-png.flaticon.com/512/9165/9165147.png"
-                  width={75}
-                />
-              </span>
-              <h3 className="font-semibold text-xl text-gray-900 dark:text-white mt-3.5">
-                在線支援
-              </h3>
-            </div>
-          </div>
+    <section className="w-full py-6 md:py-12">
+      <div className="container flex flex-col items-center justify-center gap-3 px-4 md:px-6">
+        <div className="flex flex-col items-center space-y-2 text-center">
+          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">需要客服
+          <span className={styles.abc}>協助</span>
+         嗎？
+            </h2>
+          <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
+          立刻與我們客服進行溝通
+          </p>
+        </div>
+        <div className="flex flex-col gap-2 min-[400px]:flex-row">
+          <a
+            className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+            href="/contact"
+          >
+            聯絡我們
+          </a>
+          <Link
+            className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+            onClick={() => window.$crisp && window.$crisp.push(['do', 'chat:open'])}
+          >
+            在線支援
+          </Link>
         </div>
       </div>
     </section>
