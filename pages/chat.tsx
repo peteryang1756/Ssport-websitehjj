@@ -1,7 +1,6 @@
 'use client';
  
-import { useChat } from 'ai/react';
- 
+import { useChat } from './api/chat';
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
  
