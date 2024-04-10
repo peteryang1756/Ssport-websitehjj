@@ -51,9 +51,14 @@ export const authOptions = {
     },
     async session({ session, token }) {
       // 向客户端发送访问令牌等属性
-      session.accessToken = token.accessToken
-      session.user.role = token.role
-      return session
+      session.accessToken = token.accessToken;
+      
+      // Check if session.user exists before assigning a role
+      if (session.user) {
+        session.user.role = token.role;
+      }
+      
+      return session;
     },
   },
 }
