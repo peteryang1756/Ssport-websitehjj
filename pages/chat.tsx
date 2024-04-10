@@ -1,6 +1,6 @@
 'use client';
  
-import { useChat } from './api/chat';
+import { useChat } from './api/chat/route.ts';
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
  
