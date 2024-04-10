@@ -35,32 +35,18 @@ export const authOptions = {
     logo: "/logo.png", // 图片的绝对URL
   },
   callbacks: {
-    async jwt({ token, account, user }) {
-      // 在登录后将访问令牌持久化到令牌中
-      if (account) {
-        token.accessToken = account.access_token
-      }
-
-      // 根据用户信息赋予角色
-      if (user && user.email) {
-        const isAdmin = adminEmails.includes(user.email)
-        token.role = isAdmin ? 'admin' : 'user'
-      }
-
-      return token
-    },
-    async session({ session, token }) {
-      // 向客户端发送访问令牌等属性
-      session.accessToken = token.accessToken;
-      
-      // Check if session.user exists before assigning a role
-      if (session.user) {
-        session.user.role = token.role;
-      }
-      
-      return session;
-    },
+  async jwt({ token, account }) {
+    // Persist the OAuth access_token to the token right after signin
+    if (account) {
+      token.accessToken = account.access_token
+    }
+    return token
   },
+  async session({ session, token, user }) {
+    // Send properties to the client, like an access_token from a provider.
+    session.accessToken = token.accessToken
+    return session
+  }
 }
 
 export default NextAuth(authOptions)
