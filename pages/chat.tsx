@@ -6,6 +6,8 @@ export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
  
   return (
+ <section style={{ backgroundColor: '#1F4172' }}>
+  <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
     <div>
       {messages.map(m => (
         <div key={m.id}>
@@ -22,5 +24,6 @@ export default function Chat() {
         />
       </form>
     </div>
+</section>
   );
 }
