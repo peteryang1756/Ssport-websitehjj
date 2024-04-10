@@ -23,7 +23,7 @@ export default function Chat() {
           onChange={handleInputChange}
         />
       </form>
-    </div>
+    </div></div>
 </section>
   );
 }
