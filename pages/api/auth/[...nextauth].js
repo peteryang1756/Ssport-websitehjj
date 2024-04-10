@@ -1,61 +1,20 @@
 import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
-import GoogleProvider from "next-auth/providers/google"
-import LineProvider from "next-auth/providers/line"
-import DiscordProvider from "next-auth/providers/discord"
+import Providers from "next-auth/providers"
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import { PrismaClient } from "@prisma/client"
 
-// 管理员邮箱地址列表
-const adminEmails = ['ssangyongsports1@gmail.com', 'admin@example.com']
+const prisma = new PrismaClient()
 
-export const authOptions = {
-  // 配置一个或多个认证提供者
+export default NextAuth({
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+    Providers.Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       authorization: {
         params: {},
       },
       checks: ['none'],
     }),
-    LineProvider({
-      clientId: process.env.Line_ID,
-      clientSecret: process.env.Line_SECRET,
-    }),
-    DiscordProvider({
-      clientId: process.env.Discord_ID,
-      clientSecret: process.env.Discord_SECRET,
-    }),
   ],
-  theme: {
-    logo: "/logo.png", // 图片的绝对URL
-  },
-  callbacks: {
-    async jwt({ token, account, user }) {
-      // 在登录后将访问令牌持久化到令牌中
-      if (account) {
-        token.accessToken = account.access_token
-      }
-
-      // 根据用户信息赋予角色
-      if (user && user.email) {
-        const isAdmin = adminEmails.includes(user.email)
-        token.role = isAdmin ? 'admin' : 'user'
-      }
-
-      return token
-    },
-    async session({ session, token }) {
-      // 向客户端发送访问令牌等属性
-      session.accessToken = token.accessToken
-      session.user.role = token.role
-      return session
-    },
-  },
-}
-
-export default NextAuth(authOptions)
+  adapter: PrismaAdapter(prisma),
+})
