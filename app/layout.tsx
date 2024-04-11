@@ -16,9 +16,10 @@ export default function Layout({ children }: { children: ReactNode }) {
     <CrispWithNoSSR />
     <body>
 <Head1 />
-      
+      <div className="pt-14">
 <RootProvider>        {children}</RootProvider>
-    </body>
+  </div>
+      </body>
           <Footer />   
 
     </html>
