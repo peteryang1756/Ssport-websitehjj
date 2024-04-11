@@ -13,7 +13,7 @@ function supporthero() {
     <h2 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
       需要 <span className={styles.c}>雙龍體育</span>的幫助嗎?
     </h2>
-    <div className="pt-9">
+    
     
      
     <div className={`${a.docSearch} ${a.container}`}>
@@ -22,7 +22,7 @@ function supporthero() {
         appId="YHQ31RR2WW"
         indexName="help"
       />
-    </div>
+    
        </div>
   </div>
 </section>
