@@ -1,13 +1,13 @@
 import Image from 'next/image';
-import Link from 'next/image';
+import Link from 'next/link';
 import fs from "fs";
 import { Breadcrumb } from "flowbite-react";
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it"; // import the markdown-it library
-import md from "markdown-it"; // import the markdown-it library
 import path from "path";
 import styles from '../components/Button.module.css';
 import Head from 'next/head'
+
 // The page for each post
 export default function Post({frontmatter, content}) {
     const {title, seo, author, category, date, bannerImage, tags, img, info} = frontmatter
@@ -52,7 +52,7 @@ export default function Post({frontmatter, content}) {
         <div className="ml-3">
           <p className="text-sm font-medium text-gray-900">{author}</p>
           <div className="flex space-x-1 text-sm text-gray-500">
-            <time dateTime="{date}">{date}</time>
+            <time dateTime={date}>{date}</time>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function Post({frontmatter, content}) {
            <p style={{ whiteSpace: 'pre-wrap' }}>
   <div dangerouslySetInnerHTML={{ __html: content }} />
 </p>
-          </div＞
+          </div>
         </div>
       </header>
     </article>
@@ -129,4 +129,4 @@ md.use(require('markdown-it-attrs'), {
     content: htmlContent,
     },
   };
-}  
+}
