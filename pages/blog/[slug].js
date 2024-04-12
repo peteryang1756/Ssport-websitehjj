@@ -69,10 +69,10 @@ export default function Post({frontmatter, content}) {
       <header className="mb-4 lg:mb-6 not-format">
         <div>
           <div className="pt-8 pb-16 lg:pt-16 lg:pb-24 ">
-            <p>
-    <div dangerouslySetInnerHTML={{ __html: content }} />
-            </p>
-          </div>
+           <p style={{ whiteSpace: 'pre-wrap' }}>
+  <div dangerouslySetInnerHTML={{ __html: content }} />
+</p>
+          </div＞
         </div>
       </header>
     </article>
