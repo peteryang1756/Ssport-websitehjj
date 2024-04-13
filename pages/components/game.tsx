@@ -6,7 +6,7 @@ import styles from './Button.module.css';
 import a from './a.module.css';
 import Image from 'next/image';
 
-function Game({ latestAnnouncements }) {
+function Game() {
   return (
     <section className="bg-white dark:bg-gray-900 antialiased">
       <Image
