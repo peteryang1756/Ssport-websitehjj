@@ -12,8 +12,20 @@ import Sport from './components/sport';
 import Action from './components/action';
 import React from 'react';
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 
-export default function Home({ latestAnnouncements }) {
+interface PostFrontmatter {
+  title: string;
+  date: string;
+  tags: string[];
+}
+
+interface Post {
+  slug: string;
+  frontmatter: PostFrontmatter;
+}
+
+export default function Home({ latestAnnouncements }: { latestAnnouncements: Post[] }) {
   return (
     <>
       <Head>
@@ -88,7 +100,7 @@ export default function Home({ latestAnnouncements }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<{ latestAnnouncements: Post[] }> = async () => {
   const files = fs.readdirSync('posts');
   const posts = files.map((fileName) => {
     const slug = fileName.replace('.md', '');
@@ -112,4 +124,4 @@ export async function getStaticProps() {
       latestAnnouncements,
     },
   };
-}
+};
