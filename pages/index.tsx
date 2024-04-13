@@ -1,5 +1,4 @@
 import Hero from './components/Hero';
-import Game from './components/game';
 import Table from './components/table';
 import Tabl from './components/tabl';
 import Sport from './components/sport';
@@ -22,7 +21,6 @@ const Home = () => {
         <div id="anchor_one" />
         <Table />
         <Tabl />
-<Game />
         
       </div>
     </>
