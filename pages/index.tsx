@@ -64,11 +64,9 @@ export default function Home({ latestAnnouncements }) {
         </div>
         <div className="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16">
           <div className="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
-            {latestAnnouncements.map((post) => (
-              <div
-                key={post.slug}
-                className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center"
-              >
+                  <ul>
+        {latestAnnouncements.map((post) => (
+          <li key={post.slug}>
                 <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
                   {post.frontmatter.date}
                 </p>
@@ -77,9 +75,9 @@ export default function Home({ latestAnnouncements }) {
                     <a className="hover:underline">{post.frontmatter.title}</a>
                   </Link>
                 </h3>
-              </div>
+              </li>
             ))}
-          </div>
+          </ui>
         </div>
       </div>
     </section>
