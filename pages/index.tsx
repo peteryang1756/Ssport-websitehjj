@@ -12,7 +12,7 @@ import Sport from './components/sport';
 import Action from './components/action';
 import React from 'react';
 import Head from 'next/head'
-function Home({ latestAnnouncements }) {
+export default function Home({ latestAnnouncements }) {
   return (
       <>
 <Head>
@@ -103,7 +103,7 @@ export async function getStaticProps() {
   });
 
   const announcements = posts.filter((post) =>
-    post.frontmatter.tags && post.frontmatter.tags.includes('公告')
+    post.frontmatter.tags.includes('公告')
   );
   const latestAnnouncements = announcements.slice(0, 3);
 
@@ -113,5 +113,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default Home;
