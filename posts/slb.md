@@ -1,9 +1,9 @@
 ---
 title: "全新視覺形象 雙龍職棒推出新Logo"
 seo: "全新視覺形象 雙龍職棒推出新Logo"
-author: "Peter yang"
-info: "雙龍體育CEO"
-img: "/1D7F9E91-14B0-4914-9FBD-0E46CE340A78.png"
+author: "雙龍體育"
+info: "雙龍體育團隊"
+img: "/team.jpeg"
 category: "blog"
 date: "2024-04-13"
 bannerImage: "/blog.jpg"
