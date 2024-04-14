@@ -197,7 +197,7 @@ export default function Blog({posts}){
         <div className="flex items-center justify-between">
           <a
             className="flex items-center space-x-2"
-            href="https://discuss.ssangyongsports.org/members/peter-yang.1/"
+            href="/"
           >
             <Image
   className="rounded-full w-7 h-7"
