@@ -195,9 +195,9 @@ export default function Blog({posts}){
           {seo}
         </p>
         <div className="flex items-center justify-between">
-          <a
+          <Link
             className="flex items-center space-x-2"
-            href="/"
+            href="/blog"
           >
             <Image
   className="rounded-full w-7 h-7"
@@ -208,7 +208,7 @@ export default function Blog({posts}){
             <span className="font-medium dark:text-white">
                {author}
             </span>
-          </a>
+          </Link>
           <Link
             href={`/blog/${slug}`}
           >
