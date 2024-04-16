@@ -18,16 +18,16 @@ export default function Post({frontmatter, content}) {
     <meta name="description" content={`${seo}-雙龍體育blog`} />
   </Head>     
 
-        
+
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       
+
   <div className="pt-10 pb-16">  
     <Breadcrumb aria-label="Default breadcrumb example">
       <Breadcrumb.Item href={`/blog/`}>
         部落格
       </Breadcrumb.Item>
       <Breadcrumb.Item href={`/blog/tags/${tags}`}>{tags}</Breadcrumb.Item>
-      
+
     </Breadcrumb>
     <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
               {title}
