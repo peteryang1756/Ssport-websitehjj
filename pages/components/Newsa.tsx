@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import Link from 'next/link';
 
-export default function News({ latestAnnouncements }) {
+export default function Newsa({ latestAnnouncements }) {
   return (
     <div>
       <h2>Latest Announcements</h2>
