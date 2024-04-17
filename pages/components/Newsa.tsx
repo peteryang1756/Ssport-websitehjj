@@ -1,9 +1,17 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import matter from 'gray-matter';
 import path from 'path';
 import Link from 'next/link';
 
-export default function Newsa({ latestAnnouncements }) {
+interface Post {
+  slug: string;
+  frontmatter: {
+    title: string;
+    // Add other frontmatter properties here
+  };
+}
+
+export default function Newsa({ latestAnnouncements }: { latestAnnouncements: Post[] }) {
   return (
     <div>
       <h2>Latest Announcements</h2>
@@ -21,23 +29,25 @@ export default function Newsa({ latestAnnouncements }) {
 }
 
 export async function getStaticProps() {
-  const files = fs.readdirSync('posts');
-  const posts = files.map((fileName) => {
-    const slug = fileName.replace('.md', '');
-    const fullPath = path.join('posts', fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data: frontmatter } = matter(fileContents);
+  const files = await fs.readdir('posts');
+  const posts: Post[] = await Promise.all(
+    files.map(async (fileName) => {
+      const slug = fileName.replace('.md', '');
+      const fullPath = path.join('posts', fileName);
+      const fileContents = await fs.readFile(fullPath, 'utf8');
+      const { data: frontmatter } = matter(fileContents);
 
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+      return {
+        slug,
+        frontmatter,
+      };
+    })
+  );
 
   const announcements = posts.filter((post) =>
-    post.frontmatter.tags.includes('公告')
+    post.frontmatter.tags && post.frontmatter.tags.includes('公告')
   );
-  const latestAnnouncements = announcements.slice(0, 3);
+  const latestAnnouncements: Post[] = announcements.slice(0, 3);
 
   return {
     props: {
