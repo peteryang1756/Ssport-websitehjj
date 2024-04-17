@@ -4,85 +4,26 @@ import Tabl from './components/tabl';
 import Sport from './components/sport';
 import Action from './components/action';
 import React from 'react';
-import Head from 'next/head';
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
-import Link from 'next/link';
-import { GetStaticProps } from 'next';
+import Head from 'next/head'
 
-interface Post {
-  slug: string;
-  frontmatter: {
-    title: string;
-    [key: string]: any; // add any other properties from frontmatter
-  };
-}
-
-interface HomeProps {
-  latestAnnouncements: Post[];
-}
-
-const Home: React.FC<HomeProps> = ({ latestAnnouncements }) => {
+const Home = () => {
   return (
     <>
-      <Head>
+<Head>
         <title>雙龍體育</title>
-        <meta
-          name="description"
-          content="雙龍體育網站 - 專業體育賽事！ 提供最新的雙龍體育資訊、TV、運動比賽報導，讓您輕鬆了解雙龍體育。歡迎加入雙龍運動論壇，一起與大家溝通！"
-        />
+        <meta name="description" content="雙龍體育網站 - 專業體育賽事！ 提供最新的雙龍體育資訊、TV、運動比賽報導，讓您輕鬆了解雙龍體育。歡迎加入雙龍運動論壇，一起與大家溝通！" />
       </Head>
 
       <div>
         <div className="bg-gradient h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
-        <Hero />
-        <Sport />
-        <div id="anchor_one" />
-        <Table />
-        <Tabl />
-      </div>
+          <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">我們的首頁正在構建中</h1>
+  <p>
+    我們首頁正在重新設計中，但其他網頁仍可訪問，造成不便敬請見諒。
+  </p>
 
-      <div>
-        <h2>Latest Announcements</h2>
-        <ul>
-          {latestAnnouncements.map((post) => (
-            <li key={post.slug}>
-              <Link href={`/blog/${post.slug}`}>
-                <a>{post.frontmatter.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
       </div>
     </>
   );
-};
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const files = fs.readdirSync('posts');
-  const posts: Post[] = files.map((fileName) => {
-    const slug = fileName.replace('.md', '');
-    const fullPath = path.join('posts', fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data: frontmatter } = matter(fileContents);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
-
-  const announcements = posts.filter((post) =>
-    post.frontmatter.tags.includes('公告')
-  );
-  const latestAnnouncements = announcements.slice(0, 3);
-
-  return {
-    props: {
-      latestAnnouncements,
-    },
-  };
-};
+}
 
 export default Home;
