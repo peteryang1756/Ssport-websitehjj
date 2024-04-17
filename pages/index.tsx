@@ -20,6 +20,9 @@ const Home = () => {
   <p>
     我們首頁正在重新設計中，但其他網頁仍可訪問，造成不便敬請見諒。
   </p>
+<p>
+    任何關於網站相關問題可聯繫：support-website@ssangyongsports.eu.org
+  </p>
 
       </div>
     </>
