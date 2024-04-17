@@ -4,19 +4,34 @@ import Tabl from './components/tabl';
 import Sport from './components/sport';
 import Action from './components/action';
 import React from 'react';
-import Head from 'next/head'
-
+import Head from 'next/head';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import Link from 'next/link';
+import { GetStaticProps } from 'next';
 
-export default function Home({ latestAnnouncements }) {
+interface Post {
+  slug: string;
+  frontmatter: {
+    title: string;
+    [key: string]: any; // add any other properties from frontmatter
+  };
+}
+
+interface HomeProps {
+  latestAnnouncements: Post[];
+}
+
+const Home: React.FC<HomeProps> = ({ latestAnnouncements }) => {
   return (
-        <>
-<Head>
+    <>
+      <Head>
         <title>雙龍體育</title>
-        <meta name="description" content="雙龍體育網站 - 專業體育賽事！ 提供最新的雙龍體育資訊、TV、運動比賽報導，讓您輕鬆了解雙龍體育。歡迎加入雙龍運動論壇，一起與大家溝通！" />
+        <meta
+          name="description"
+          content="雙龍體育網站 - 專業體育賽事！ 提供最新的雙龍體育資訊、TV、運動比賽報導，讓您輕鬆了解雙龍體育。歡迎加入雙龍運動論壇，一起與大家溝通！"
+        />
       </Head>
 
       <div>
@@ -26,28 +41,27 @@ export default function Home({ latestAnnouncements }) {
         <div id="anchor_one" />
         <Table />
         <Tabl />
-        
       </div>
 
-    <div>
-      <h2>Latest Announcements</h2>
-      <ul>
-        {latestAnnouncements.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`}>
-              <a>{post.frontmatter.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-              </>
+      <div>
+        <h2>Latest Announcements</h2>
+        <ul>
+          {latestAnnouncements.map((post) => (
+            <li key={post.slug}>
+              <Link href={`/blog/${post.slug}`}>
+                <a>{post.frontmatter.title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
-}
+};
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const files = fs.readdirSync('posts');
-  const posts = files.map((fileName) => {
+  const posts: Post[] = files.map((fileName) => {
     const slug = fileName.replace('.md', '');
     const fullPath = path.join('posts', fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -69,4 +83,6 @@ export async function getStaticProps() {
       latestAnnouncements,
     },
   };
-}
+};
+
+export default Home;
