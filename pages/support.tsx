@@ -4,6 +4,7 @@ import Supporthero from './components/supporthero';
 import Supportend from './components/supportend'; // 添加缺失的引号
 import styles from './components/docsearch.module.css';
 import Ticket from './components/ticket';
+import Hotdocs from './components/hotdocs';
 import Head from 'next/head';
 import { DocSearch } from '@docsearch/react';
 import '@docsearch/css';
@@ -25,6 +26,7 @@ const support = () => {
         <Head1 />
         <Supporthero />
         <Supportchoice />
+        <Hotdocs />
         <Supportend />
         {/* 添加 CrispWithNoSSR 组件 */}
         <CrispWithNoSSR />
