@@ -25,8 +25,9 @@ const support = () => {
       <div>
         <Head1 />
         <Supporthero />
+           <Hotdocs />
         <Supportchoice />
-        <Hotdocs />
+     
         <Supportend />
         {/* 添加 CrispWithNoSSR 组件 */}
         <CrispWithNoSSR />
