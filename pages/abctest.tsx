@@ -1,64 +1,66 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+// pages/tag/[tag].js
+import { getAllTags, getPostsByTag } from '../../lib/posts'
+import Link from 'next/link';
+import Head from 'next/head'
+import Image from 'next/image';
 
-interface Post {
-  slug: string;
-  frontmatter: {
-    title: string;
-    seo: string;
-    tags: string;
-    date: string;
-    // 添加其他前言字段
-  };
-  content: string;
-}
+export default function TagPage({ posts, tag }) {
+  // Sort the posts array in descending order by date
+  const sortedPosts = posts.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date);
+    const dateB = new Date(b.frontmatter.date);
+    return dateB - dateA;
+  });
 
-export default function Home({ latestAnnouncements }: { latestAnnouncements: Post[] }) {
   return (
     <div>
-      {/* 其他首頁內容 */}
-      <div>
-        <h2>最新公告</h2>
-        {latestAnnouncements.map((post) => (
-          <div key={post.slug}>
-            <h3>{post.frontmatter.title}</h3>
-            <p>{post.frontmatter.seo}</p>
-            {/* 其他公告內容 */}
+      <Head>
+        <title>標籤: {tag} - 雙龍體育部落格</title>
+        <meta
+          name="description"
+          content={`查看所有標記為 "${tag}" 的文章`}
+        />
+      </Head>
+      <div className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              標記為 {tag} 的文章
+            </h2>
           </div>
-        ))}
+          <div>
+            {sortedPosts.slice(0, 2).map((post) => (
+              <article key={post.slug} className="bg-white dark:bg-gray-900">
+                {/* 渲染文章卡片 */}
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
-export const getStaticProps = async () => {
-  const postsDirectory = path.join(process.cwd(), 'posts');
-  const filenames = fs.readdirSync(postsDirectory);
+export async function getStaticPaths() {
+  const tags = await getAllTags()
+  const paths = tags.map((tag) => ({
+    params: { tag },
+  }))
 
-  const latestAnnouncements: Post[] = filenames
-    .map((filename) => {
-      const filePath = path.join(postsDirectory, filename);
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      const { data: frontmatter, content } = matter(fileContents);
+  return {
+    paths,
+    fallback: false,
+  }
+}
 
-      return {
-        slug: filename.replace('.md', ''),
-        frontmatter,
-        content,
-      };
-    })
-    .filter((post) => post.frontmatter.tags === '公告')
-    .sort((a, b) => {
-      const dateA = new Date(a.frontmatter.date);
-      const dateB = new Date(b.frontmatter.date);
-      return dateB - dateA;
-    })
-    .slice(0, 2);
+export async function getStaticProps({ params }) {
+  const { tag } = params
+  const posts = await getPostsByTag(tag)
 
   return {
     props: {
-      latestAnnouncements,
+      posts,
+      tag,
     },
-  };
-};
+  }
+}
