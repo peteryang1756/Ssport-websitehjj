@@ -2,7 +2,19 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export default function Home({ latestAnnouncements }) {
+interface Post {
+  slug: string;
+  frontmatter: {
+    title: string;
+    seo: string;
+    tags: string;
+    date: string;
+    // 添加其他前言字段
+  };
+  content: string;
+}
+
+export default function Home({ latestAnnouncements }: { latestAnnouncements: Post[] }) {
   return (
     <div>
       {/* 其他首頁內容 */}
@@ -20,11 +32,11 @@ export default function Home({ latestAnnouncements }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const postsDirectory = path.join(process.cwd(), 'posts');
   const filenames = fs.readdirSync(postsDirectory);
 
-  const latestAnnouncements = filenames
+  const latestAnnouncements: Post[] = filenames
     .map((filename) => {
       const filePath = path.join(postsDirectory, filename);
       const fileContents = fs.readFileSync(filePath, 'utf8');
@@ -49,4 +61,4 @@ export async function getStaticProps() {
       latestAnnouncements,
     },
   };
-}
+};
