@@ -1,5 +1,5 @@
 // pages/tag/[tag].js
-import { getAllTags, getPostsByTag } from '../../lib/posts'
+import { getAllTags, getPostsByTag } from '../lib/posts'
 import Link from 'next/link';
 import Head from 'next/head'
 import Image from 'next/image';
