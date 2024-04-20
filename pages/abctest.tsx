@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Head from 'next/head'
 import Image from 'next/image';
 
-export default function TagPage({ posts, tag }) {
+export default function abctest({ posts, tag }) {
   // Sort the posts array in descending order by date
   const sortedPosts = posts.sort((a, b) => {
     const dateA = new Date(a.frontmatter.date);
