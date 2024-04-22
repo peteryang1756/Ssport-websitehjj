@@ -7,12 +7,12 @@ function table() {
     <section className="bg-white dark:bg-gray-900">
   <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
     <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-      <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-  雙龍體育<span className={styles.aabc}>公告</span>
-</h2>
-      <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-        這是雙龍體育最新重大公告。
-      </p>
+           <motion.h2 className={`mb-6 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 lg:text-center dark:text-white md:text-4xl `}>
+      最新
+                   <span className={styles.abc}>消息</span>
+
+     </motion.h2>
+     
     </div>
     <div className="grid gap-8 lg:grid-cols-2">
       <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
