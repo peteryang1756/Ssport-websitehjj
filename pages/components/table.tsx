@@ -45,10 +45,10 @@ function table() {
           <div className="flex items-center space-x-4">
             <img
               className="w-7 h-7 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-              alt="Jese Leos avatar"
+              src="/team.jpeg"
+              alt="雙龍體育"
             />
-            <span className="font-medium dark:text-white">Jese Leos</span>
+            <span className="font-medium dark:text-white">雙龍體育</span>
           </div>
           <Link
             href="/blog/close"
@@ -100,16 +100,16 @@ function table() {
           <div className="flex items-center space-x-4">
             <img
               className="w-7 h-7 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-              alt="Bonnie Green avatar"
+              src="/team.jpeg"
+              alt="雙龍體育"
             />
-            <span className="font-medium dark:text-white">Bonnie Green</span>
+            <span className="font-medium dark:text-white">雙龍體育</span>
           </div>
-          <a
-            href="#"
+          <Link
+            href="/blog/slb"
             className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
           >
-            Read more
+            閱讀文章
             <svg
               className="ml-2 w-4 h-4"
               fill="currentColor"
@@ -122,7 +122,7 @@ function table() {
                 clipRule="evenodd"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </article>
     </div>
