@@ -7,11 +7,11 @@ function table() {
     <section className="bg-white dark:bg-gray-900">
   <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
     <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-           <motion.h2 className={`mb-6 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 lg:text-center dark:text-white md:text-4xl `}>
+           <h2 className={`mb-6 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 lg:text-center dark:text-white md:text-4xl `}>
       最新
                    <span className={styles.abc}>消息</span>
 
-     </motion.h2>
+     </h2>
      
     </div>
     <div className="grid gap-8 lg:grid-cols-2">
