@@ -19,8 +19,8 @@ const Home = () => {
         <Hero />
         <Sport />
         <div id="anchor_one" />
-        <Table />
         <Tabl />
+        <Table />
 
         
       </div>
