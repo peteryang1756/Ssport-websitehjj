@@ -1,4 +1,4 @@
- import Link from 'next/link';
+import Link from 'next/link';
 import styles from './Button.module.css';
 import a from './a.module.css';
 function hero() {
