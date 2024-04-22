@@ -16,14 +16,13 @@ const Home = () => {
 
       <div>
         <div className="bg-gradient h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
-          <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">我們的首頁正在構建中</h1>
-  <p>
-    我們首頁正在重新設計中，但其他網頁仍可訪問，造成不便敬請見諒。
-  </p>
-<p>
-    任何關於網站相關問題可聯繫：support-website@ssangyongsports.eu.org
-  </p>
+        <Hero />
+        <Sport />
+        <div id="anchor_one" />
+        <Table />
+        <Tabl />
 
+        
       </div>
     </>
   );
