@@ -4,47 +4,37 @@ import styles from './Button.module.css';
 
 function Tabl() {
   return (
-    <section style={{ backgroundColor: '#ffffff' }}>
-      <Image
-          className="w-full"
-          src="/home.png"
-          alt="dashboard image"
-        />
-      <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-        <div className="mt-4 md:mt-0">
-          <h2 className={`mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white `}>
-            雙龍
-                        <span className={styles.abc}>職籃</span>
+         <div className="bg-white">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+            我們的商品
           </h2>
-          <p className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
-          雙龍職籃是雙龍體育旗下的體育組織,總共有四隻隊伍,歡迎大家觀賽！
-          </p>
-          <a
-            href="https://sba.ssangyongsports.org/"
-            className="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
-          >
-           訪問官網
-            <svg
-              className="ml-2 -mr-1 w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </a>
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div className="group relative">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <img
+                  src="https://i.imgur.com/SMZkCQm.png"
+                  alt="Front of men's Basic Tee in black."
+                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                />
+              </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a href="#">
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      雙龍體育TV
+                    </a>
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">半年繳</p>
+                </div>
+                <p className="text-sm font-medium text-gray-900">$500</p>
+              </div>
+            </div>
+            {/* More products... */}
+          </div>
         </div>
-        <Image
-          className="w-full"
-          src="/sba.png"
-          alt="dashboard image"
-        />
       </div>
-    </section>
   );
 }
 
