@@ -105,28 +105,25 @@ export async function getStaticProps({ params: { slug } }) {
   const fullPath = path.join("posts", `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data: frontmatter, content } = matter(fileContents);
-const md = new MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true,
-  xhtmlOut: true,
-  // Disable header tags
-  header: false,
-    heading: false,
+  const md = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+    xhtmlOut: true,
     plugins: [require('markdown-it-attrs')],
+  });
 
-
-});
-md.use(require('markdown-it-attrs'), {
+  md.use(require('markdown-it-attrs'), {
     leftDelimiter: '[',
     rightDelimiter: ']',
   });
+
   const htmlContent = md.render(content);
 
   return {
-  props: {
-    frontmatter,
-    content: htmlContent,
+    props: {
+      frontmatter,
+      content: htmlContent,
     },
   };
 }
