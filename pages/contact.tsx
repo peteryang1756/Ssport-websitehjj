@@ -49,8 +49,7 @@ function C() {
                 required={true}
               />
             </label>
-            <input type="hidden" name="_email.subject" value="雙龍體育網站聯繫資訊" />
-            <input type="hidden" name="_email.from" value="雙龍體育聯繫客戶" />
+   
             <div className="max-w-md" id="select">
               <div className="mb-2 block">
                 <Label htmlFor="幫助範圍" value="幫助範圍" />
@@ -78,7 +77,7 @@ function C() {
               />
             </label>
             <label
-              htmlFor="message"
+              htmlFor="Message"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
             >
               內容
