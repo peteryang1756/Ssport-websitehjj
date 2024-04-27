@@ -25,7 +25,7 @@ export default function Home({ latestAnnouncements }) {
         <Sport />
         <div id="anchor_one" />
         <Tabl />
-        <Table />
+        
       </div>
 
       <section className="bg-white dark:bg-gray-900">
@@ -118,7 +118,10 @@ export async function getStaticProps() {
     };
   });
 
-  const latestAnnouncements = posts.slice(0, 2);
+  const announcementPosts = posts.filter((post) =>
+    post.frontmatter.tags && post.frontmatter.tags.includes('公告')
+  );
+  const latestAnnouncements = announcementPosts.slice(0, 2);
 
   return {
     props: {
