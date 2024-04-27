@@ -121,7 +121,14 @@ export async function getStaticProps() {
   const announcementPosts = posts.filter((post) =>
     post.frontmatter.tags && post.frontmatter.tags.includes('公告')
   );
-  const latestAnnouncements = announcementPosts.slice(0, 2);
+
+  // Sort announcement posts by date in descending order
+  const sortedAnnouncements = announcementPosts.sort(
+    (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+  );
+
+  // Take the first two sorted announcement posts
+  const latestAnnouncements = sortedAnnouncements.slice(0, 2);
 
   return {
     props: {
