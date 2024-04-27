@@ -65,7 +65,7 @@ export default function Home({ latestAnnouncements }) {
                   <Link href={`/blog/${post.slug}`}>{post.frontmatter.title}</Link>
                 </h2>
                 <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
-                  {post.frontmatter.description}
+                  {post.frontmatter.seo}
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex items-center space-x-4">
