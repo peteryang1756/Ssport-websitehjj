@@ -9,7 +9,7 @@ function table() {
     <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
            <h2 className={`mb-6 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl `}>
       最新
-                   <span className={styles.abc}>消息</span>
+                   <span className={styles.abc}>公告</span>
 
      </h2>
      
@@ -88,7 +88,7 @@ function table() {
             </svg>
             公告
           </span>
-          <span className="text-sm">14 days ago</span>
+          <span className="text-sm">2024-04-13</span>
         </div>
         <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           <Link href="/blog/slb">全新視覺形象 雙龍職棒推出新Logo</Link>
