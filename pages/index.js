@@ -9,7 +9,7 @@ import Sport from './components/sport';
 import Action from './components/action';
 import React from 'react';
 import Head from 'next/head';
-import styles from './components/styles.module.css';
+import styles from './components/Button.module.css';
 
 export default function Home({ latestAnnouncements }) {
   return (
