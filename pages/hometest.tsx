@@ -1,5 +1,5 @@
 // pages/index.js
-import { getAllTags, getPostsByTag } from '../lib/posts'
+import { getAllTags, getPostsByTag } from '../lib/posts2'
 import Link from 'next/link';
 import Head from 'next/head'
 import Image from 'next/image';
