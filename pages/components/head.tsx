@@ -116,9 +116,7 @@ export default function Head() {
            <Link href="/contact" className="text-sm font-semibold leading-6 text-gray-900">
             聯繫
           </Link>
-          <a href="https://status.ssangyongsports.eu.org" className="text-sm font-semibold leading-6 text-gray-900">
-            狀態
-          </a>
+          
           
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
