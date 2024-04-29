@@ -103,41 +103,41 @@ export default function Head() {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
            
-                <Link
-                  href="/support"
+                <a
+                  href="https://ssangyongsports.eu.org"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  幫助中心
-                </Link>
-               <Link
-                  href="/p"
+                  返回官網
+                </a>
+               <a
+                  href="https://ssangyongsports.eu.org/contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  隱私政策
-                </Link>
-                <Link
-                  href="/t"
+                  聯繫客服
+                </a>
+                <a
+                  href="https://support.ssangyongsports.eu.org"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  服務條款
-                </Link>
-                <Link
-                  href="/blog"
+                  查看工單狀態
+                </a>
+                <a
+                  href="https://discuss.ssangyongsports.eu.org"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  部落格
-                </Link>
-                    <Link
-                  href="/contact"
+                  論壇
+                </a>
+                    <a
+                  href="https://status.ssangyongsports.eu.org"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  聯繫
-                </Link>
+                  狀態
+                </a>
               </div>
               <div className="py-6">
                   <DocSearch
