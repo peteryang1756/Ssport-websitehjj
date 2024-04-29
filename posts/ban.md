@@ -13,15 +13,13 @@ tags:
 由於我們的聯繫表單最近收到了大量由機器人發送的垃圾訊息，因此我們將採取措施以維持溝通的質量和避免影響客服回覆速度。
 
 這些機器人訊息通常包含以下短語：
-
-* 「Hi, I'm writing about your price」
-* 「Aloha, write about your the price」
-* 「Hi, I write about the price for reseller」
-* 「幹你娘」（不雅用語）
-* 「Hello I wrote about your price for reseller」
-* 「prices」
-* 「price」
-
+「Hi, I'm writing about your price」
+「Aloha, write about your the price」
+「Hi, I write about the price for reseller」
+「幹你娘」（不雅用語）
+「Hello I wrote about your price for reseller」
+「prices」
+「price」
 為了避免這些垃圾訊息對我們的客服和系統造成干擾，我們將實施新的政策：
 
 **任何包含上述短語或類似語言的訊息將被自動封禁，不會被回應。**
