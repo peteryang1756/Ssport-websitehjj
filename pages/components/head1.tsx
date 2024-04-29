@@ -66,7 +66,7 @@ export default function Head() {
           </a>
           
           
-        </Popover.Group>
+        
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                    <DocSearch
               apiKey="c2e792c2e75fe1dd3e40574f8b4c9a80"
