@@ -3,7 +3,6 @@ import matter from 'gray-matter';
 import path from 'path';
 import Link from 'next/link';
 import Hero from './components/Hero';
-import Action from './components/action';
 import Table from './components/table';
 import Tabl from './components/tabl';
 import Sport from './components/sport';
