@@ -6,7 +6,6 @@ import Hero from './components/Hero';
 import Table from './components/table';
 import Tabl from './components/tabl';
 import Sport from './components/sport';
-import Action from './components/action';
 import React from 'react';
 import Head from 'next/head';
 import styles from './components/Button.module.css';
