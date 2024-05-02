@@ -100,7 +100,7 @@ export default function Home({ latestAnnouncements }) {
           </div>
         </div>
       </section>
-              <Action />
+              
         
     </>
   );
