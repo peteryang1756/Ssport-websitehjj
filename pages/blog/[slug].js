@@ -39,32 +39,24 @@ export default function Post({frontmatter, content}) {
     </p>
   </div>
   <div className="border-t border-blue-500 pt-10 pb-16">
-    <div className="flex items-center justify-between">
-      <div className="flex items-center">
-        <img
-          src={img}
-          alt={author}
-          className="h-10 w-10 rounded-full"
-          height={40}
-          style={{ aspectRatio: "40/40", objectFit: "cover" }}
-          width={40}
-        />
-        <div className="ml-3">
-          <p className="text-sm font-medium text-gray-900">{author}</p>
-          <div className="flex space-x-1 text-sm text-gray-500">
-            <time dateTime={date}>{date}</time>
-          </div>
-        </div>
-      </div>
-      <div className="hidden md:block">
-        <p className="text-sm font-medium text-gray-900">
-          作者介紹
-        </p>
-        <p className="mt-1 text-sm text-gray-500">
-          {info}
-        </p>
-      </div>
-    </div>
+    <div className="flex items-center gap-4 text-gray-500 dark:text-gray-400">
+            <div className="flex items-center gap-2">
+              <img
+                alt="AuthorAvatar"
+                className="rounded-full"
+                height={32}
+                src={img}
+                style={{
+                  aspectRatio: "32/32",
+                  objectFit: "cover",
+                }}
+                width={32}
+              />
+              <span className="font-medium">{author}</span>
+            </div>
+            <span>•</span>
+            <time dateTime="{date}">{date}</time>
+          </div></div>
     <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <header className="mb-4 lg:mb-6 not-format">
         <div>
