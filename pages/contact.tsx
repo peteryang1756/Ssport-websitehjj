@@ -50,21 +50,9 @@ function C() {
             <input type="text" name="honeypot" style={{ display: 'none' }} />
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
-                >
-                  名字
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    autoComplete="name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
+       <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">姓名</label>
+            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required />
+       
               </div>
               <div>
                 <label
