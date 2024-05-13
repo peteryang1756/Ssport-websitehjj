@@ -19,38 +19,52 @@ export default function Post({frontmatter, content}) {
   </Head>     
 
 
-  <section className="w-full bg-gray-100 py-12 md:py-24 lg:py-32 dark:bg-gray-800">
-  <div className="container">
-    <div className="mx-auto max-w-3xl space-y-4 text-center">
-      <div className="inline-block rounded-lg bg-gray-200 px-3 py-1 text-sm font-medium dark:bg-gray-700">
-        Technology
-      </div>
-      <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-        {title}
-      </h1>
-      <p className="text-gray-500 dark:text-gray-400">
-        {seo}
-    
-      </p>
-    </div>
-    <div className="mt-4 flex items-center justify-center gap-4">
-    <img
-      src={img}
-      alt={author}
-      width={1200}
-      height={600}
-      className="mx-auto mt-8 aspect-[2/1] w-full max-w-5xl overflow-hidden rounded-lg object-cover"
-    />
-                                      <div className="text-left">
-                <p className="font-medium">John Doe</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Web Development Expert</p>
-              </div>
-          </div>
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
+
+  <div className="pt-10 pb-16">  
+    <Breadcrumb aria-label="Default breadcrumb example">
+      <Breadcrumb.Item href={`/blog/`}>
+        部落格
+      </Breadcrumb.Item>
+      <Breadcrumb.Item href={`/blog/tags/${tags}`}>{tags}</Breadcrumb.Item>
+
+    </Breadcrumb>
+    <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+              {title}
+
+    </h1>
+    <p className="mt-4 max-w-2xl text-xl text-gray-500">
+             {seo}
+
+    </p>
   </div>
-</section>
-
-
-      </section>
+  <div className="border-t border-blue-500 pt-10 pb-16">
+    <div className="flex items-center justify-between">
+      <div className="flex items-center">
+        <img
+          src={img}
+          alt={author}
+          className="h-10 w-10 rounded-full"
+          height={40}
+          style={{ aspectRatio: "40/40", objectFit: "cover" }}
+          width={40}
+        />
+        <div className="ml-3">
+          <p className="text-sm font-medium text-gray-900">{author}</p>
+          <div className="flex space-x-1 text-sm text-gray-500">
+            <time dateTime={date}>{date}</time>
+          </div>
+        </div>
+      </div>
+      <div className="hidden md:block">
+        <p className="text-sm font-medium text-gray-900">
+          作者介紹
+        </p>
+        <p className="mt-1 text-sm text-gray-500">
+          {info}
+        </p>
+      </div>
+    </div>
     <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <header className="mb-4 lg:mb-6 not-format">
         <div>
