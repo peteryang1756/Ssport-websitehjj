@@ -1,6 +1,6 @@
 ---
-title: "OpenAI 震撼發布：GPT-4o 全能模型，開創免費時代！"
-seo: "GPT-4o將免費！"
+title: "OpenAI 發布：GPT-4o 全能模型，開創免費時代！"
+seo: "重回最強大的AIGPT-4o將免費！"
 author: "Peter yang"
 info: "雙龍體育CEO"
 img: "/1D7F9E91-14B0-4914-9FBD-0E46CE340A78.png"
