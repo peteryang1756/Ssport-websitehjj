@@ -1,5 +1,5 @@
 ---
-title: "OpenAI 發布：GPT-4o 全能模型，開創免費時代！"
+title: "OpenAI 發布：GPT-4o 全能模型，強大模型將免費！"
 seo: "重回最強大的AI,GPT-4o將免費！"
 author: "Peter yang"
 info: "雙龍體育CEO"
@@ -24,7 +24,7 @@ GPT-4o 在非英語文本的處理上有顯著提升，這對於多語言用戶�
 [.text-2xl .font-extrabold .leading-tight .text-gray-900 .lg:mb-6 .lg:text-3xl .dark:text-white]
 GPT-4o 是第一個結合文本、視覺和音頻的模型，這意味著所有輸入和輸出都由同一個神經網絡處理。
 相較於 GPT-4，GPT-4o 在視覺和音頻理解方面有了顯著的改進。
-## 開放給大眾的 GPT-4o[.text-3xl .font-extrabold .leading-tight .text-gray-900 .lg:mb-6 .lg:text-4xl .dark:text-white]
+## 開放給大眾的 GPT-4o[.text-2xl .font-extrabold .leading-tight .text-gray-900 .lg:mb-6 .lg:text-3xl .dark:text-white]
 這一全新模型的推出，不僅是技術的一大步，更是 OpenAI 向所有用戶免費開放 GPT-4o 的一大步。這意味著，從今以後，任何人都可以體驗到這一 AI 技術的強大能力。
 
 GPT-4o 的應用範圍廣泛，從即時翻譯到創作搖籃曲，從會議 AI 到客戶服務的概念證明，GPT-4o 都能夠提供支持。OpenAI 通過這一創新，不僅推動了 AI 技術的發展，更為全球用戶提供了一個免費、強大的新工具。
