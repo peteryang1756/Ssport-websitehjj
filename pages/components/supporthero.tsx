@@ -7,7 +7,7 @@ import '@docsearch/css';
 function supporthero() {
   return (
 <section
-  className="bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-900 py-15"
+  className="bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-900 py-20"
 >
   <div className="py-12 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
     <h2 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
