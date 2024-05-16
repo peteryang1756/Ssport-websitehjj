@@ -50,17 +50,7 @@ function C() {
               />
             </label>
    
-            <div className="max-w-md" id="select">
-              <div className="mb-2 block">
-                <Label htmlFor="幫助範圍" value="幫助範圍" />
-              </div>
-              <Select name="help" required>
-                <option value="雙龍體育">雙龍體育</option>
-                <option value="雙龍職籃">雙龍職籃</option>
-                <option value="雙龍職棒">雙龍職棒</option>
-                <option value="其他">其他</option>
-              </Select>
-            </div>
+
             <label
               htmlFor="Subject"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
