@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import fs from "fs";
@@ -29,43 +30,42 @@ export default function Post({frontmatter, content}) {
       <Breadcrumb.Item href={`/blog/tags/${tags}`}>{tags}</Breadcrumb.Item>
 
     </Breadcrumb>
-   <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
-  <div className="flex justify-between px-4 mx-auto max-w-screen-xl ">
-    <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-      <h1 className="mb-4 text-4xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-5xl dark:text-white">
+    <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
               {title}
-      </h1>
-      <header className="mb-4 lg:mb-6 not-format">
-        <address className="flex items-center mb-6 not-italic">
-          <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-            <img
-              className="mr-4 w-12 h-16 rounded-full"
-               src={img}
-          alt={author}
-            />
-            <div>
-              <a
-                href="#"
-                rel="author"
-                className="text-xl font-bold text-gray-900 dark:text-white"
-              >
-                       {author}
-              </a>
-              <p className="text-base text-gray-500 dark:text-gray-400">
-                 {info}
-              </p>
-              <p className="text-base text-gray-500 dark:text-gray-400">
-                            <time dateTime={date}>{date}</time>
 
-              </p>
-            </div>
-          </div>
-        </address>
-      </header>
-    </article>
+    </h1>
+    <p className="mt-4 max-w-2xl text-xl text-gray-500">
+             {seo}
+
+    </p>
   </div>
-</main>
-
+  <div className="border-t border-blue-500 pt-10 pb-16">
+    <div className="flex items-center justify-between">
+      <div className="flex items-center">
+        <img
+          src={img}
+          alt={author}
+          className="h-10 w-10 rounded-full"
+          height={40}
+          style={{ aspectRatio: "40/40", objectFit: "cover" }}
+          width={40}
+        />
+        <div className="ml-3">
+          <p className="text-sm font-medium text-gray-900">{author}</p>
+          <div className="flex space-x-1 text-sm text-gray-500">
+            <time dateTime={date}>{date}</time>
+          </div>
+        </div>
+      </div>
+      <div className="hidden md:block">
+        <p className="text-sm font-medium text-gray-900">
+          作者介紹
+        </p>
+        <p className="mt-1 text-sm text-gray-500">
+          {info}
+        </p>
+      </div>
+    </div>
     <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <header className="mb-4 lg:mb-6 not-format">
         <div>
