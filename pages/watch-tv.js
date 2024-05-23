@@ -10,7 +10,7 @@ const AdminPage = () => {
   useEffect(() => {
     if (status === "loading") return; // Do nothing while loading
     if (!session || session.user.role !== "admin") {
-      router.push("/"); // Redirect if not authenticated or not an admin
+      router.push("/tv"); // Redirect if not authenticated or not an admin
     }
   }, [session, status]);
 
