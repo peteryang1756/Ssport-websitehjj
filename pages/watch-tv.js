@@ -38,7 +38,7 @@ export async function getServerSideProps(context) {
   if (!session || session.user.role !== "admin") {
     return {
       redirect: {
-        destination: "/",
+        destination: "/tv",
         permanent: false,
       },
     };
