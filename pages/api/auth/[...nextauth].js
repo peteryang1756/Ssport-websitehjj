@@ -5,7 +5,7 @@ import LineProvider from "next-auth/providers/line"
 import DiscordProvider from "next-auth/providers/discord"
 
 // 管理员邮箱地址列表
-const adminEmails = ['ssangyongsports1@gmail.com', 'admin@example.com']
+const adminEmails = process.env.ADMIN_EMAILS ? process.env.ADMIN_EMAILS.split(',') : [];
 
 export const authOptions = {
   // 配置一个或多个认证提供者
