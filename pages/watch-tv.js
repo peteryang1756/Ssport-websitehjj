@@ -2,6 +2,8 @@
 import { getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Video from 'next-video';
+import awesomeVideo from 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
 
 const AdminPage = () => {
   const { data: session, status } = useSession();
@@ -26,6 +28,7 @@ const AdminPage = () => {
     <div>
       <h1>Admin Page</h1>
       <p>Welcome, {session.user.email}!</p>
+  <Video src={awesomeVideo} />;
     </div>
   );
 };
